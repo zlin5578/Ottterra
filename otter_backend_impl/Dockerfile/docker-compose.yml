@@ -1,0 +1,32 @@
+services:
+  django:
+    build: 
+      context: ..
+      dockerfile: Dockerfile/Dockerfile  # Specify the Dockerfile path
+    container_name: django-container
+    ports:
+      - "8006:8006"  # Allow external access to the Django server
+    environment:
+      - DB_HOST=host.docker.internal  # Allow Django inside Docker to access the local MySQL
+      - DB_NAME=university
+      - DB_USER=root  # Use the root account (modify if your MySQL is configured with another user)
+      - DB_PASSWORD=abc123456  # Replace with your MySQL root password
+    volumes:
+      - /Users/lingzp/inbox/neu/code/unity_project/Ottterra/otter_backend_impl:/app  # Mount local Django code
+    working_dir: /app  # Set the working directory
+    command: ["tail", "-f", "/dev/null"]
+    # command: ["gunicorn", "--bind", "0.0.0.0:8006", "django_project.wsgi:application"]
+    # command: ["python", "manage.py", "runserver", "0.0.0.0:8006"]
+
+
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: my-mysql
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root  # 替换为你的 root 密码
+  #     MYSQL_DATABASE: university
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: abc123456
+  #   ports:
+  #     - "3306:3306"  # 让本机 MySQL 允许 Docker 访问
