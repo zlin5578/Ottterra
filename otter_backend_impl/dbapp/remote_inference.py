@@ -15,7 +15,7 @@ def remote_trellis_infer(image_pil: Image.Image) -> str:
         image_path = Path(tmp.name)
 
     # 初始化 HF Space 客户端（启用 Token）
-    client = Client("JeffreyXiang/TRELLIS", hf_token="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")
+    client = Client("JeffreyXiang/TRELLIS")
 
     print("🌀 Step: Calling /image_to_3d to generate video preview...")
     result = client.predict(

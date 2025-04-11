@@ -3,7 +3,7 @@ from gradio_client import Client, handle_file
 # client = Client("JeffreyXiang/TRELLIS",hf_token="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")
 from gradio_client import Client, handle_file
 
-client = Client("tencent/Hunyuan3D-2",hf_token="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")
+client = Client("tencent/Hunyuan3D-2")
 result = client.predict(
 		caption=None,
 		image=handle_file('https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png'),
