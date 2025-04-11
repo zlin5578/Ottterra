@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Video Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; text-align: center; background: #f0f0f0; }
+        h2 { margin-bottom: 20px; }
+        video { border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <h2>3D Video Preview</h2>
+    <video width="640" height="480" controls autoplay loop>
+        <source src="{{ video_url }}" type="video/mp4">
+        Your browser does not support video playback.
+    </video>
+    <br><br>
+    <a href="{{ video_url }}" download>Download Video</a>
+</body>
+</html>

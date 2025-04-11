@@ -1,3 +1,7 @@
-Django>=3.2,<4.0
+Django
 gunicorn
 mysqlclient
+mysql-connector-python
+PyMySQL
+gradio
+gradio_client

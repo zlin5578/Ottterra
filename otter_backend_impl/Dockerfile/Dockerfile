@@ -6,7 +6,7 @@ WORKDIR /app
 COPY ./Dockerfile/requirements.txt /app/requirements.txt
 
 # Copy local code to the container
-COPY ./otter_backend_impl /app/
+COPY ./django_project /app/
 
 # Install dependencies
 RUN pip install --upgrade pip

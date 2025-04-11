@@ -3,3 +3,5 @@ gunicorn
 mysqlclient
 mysql-connector-python
 PyMySQL
+gradio
+gradio_client

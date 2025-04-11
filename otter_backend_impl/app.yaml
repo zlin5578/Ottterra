@@ -1,9 +1,12 @@
 runtime: python39
+service: default
 
-entrypoint: gunicorn -b :$PORT otter_backend_impl.wsgi  # 确保替换为你的项目名称
+entrypoint: gunicorn -b :$PORT django_project.wsgi  # 确保替换为你的项目名称
+instance_class: F2
 
 env_variables:
-  DJANGO_SETTINGS_MODULE: "otter_backend_impl.settings"  # 确保替换为你的项目名称
+  DJANGO_SETTINGS_MODULE: "django_project.settings"  # 确保替换为你的项目名称
+  HF_TOKEN: "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"
 
 handlers:
 - url: /static

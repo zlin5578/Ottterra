@@ -84,30 +84,30 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 #         'PORT': '3306',
 #     }
 # }
-if os.getenv('GAE_APPLICATION', None):
-    # Running on App Engine
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'company',  # 你的 MySQL 数据库名称
-            'USER': '5200',  # MySQL 用户名
-            'PASSWORD': '000000',  # MySQL 密码
-            'HOST': '/cloudsql/db-001029345:us-west1:neu-test-db',  # 替换为你的 MySQL 连接名称
-            'PORT': '3306',
-        }
-    }
-else:
-    # Running locally
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'company',  # 你的本地 MySQL 数据库
-            'USER': '5200',  # MySQL 用户名
-            'PASSWORD': '000000',  # MySQL 密码
-            'HOST': '34.82.138.6',  # 本地 MySQL 主机地址
-            'PORT': '3306',
-        }
-    }
+# if os.getenv('GAE_APPLICATION', None):
+#     # Running on App Engine
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'company',  # 你的 MySQL 数据库名称
+#             'USER': '5200',  # MySQL 用户名
+#             'PASSWORD': '000000',  # MySQL 密码
+#             'HOST': '/cloudsql/db-001029345:us-west1:neu-test-db',  # 替换为你的 MySQL 连接名称
+#             'PORT': '3306',
+#         }
+#     }
+# else:
+#     # Running locally
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'company',  # 你的本地 MySQL 数据库
+#             'USER': '5200',  # MySQL 用户名
+#             'PASSWORD': '000000',  # MySQL 密码
+#             'HOST': '34.82.138.6',  # 本地 MySQL 主机地址
+#             'PORT': '3306',
+#         }
+#     }
 
 
 # Password validation
@@ -143,8 +143,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
